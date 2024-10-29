@@ -1,5 +1,7 @@
-﻿using AutoMapper;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using UserServiceAPI.API.AuthorizationModels;
 using UserServiceAPI.Common.Models;
 using UserServiceAPI.Domain.Models;
 using UserServiceAPI.Services.DTO;
@@ -20,7 +22,10 @@ namespace UserServiceAPI.API.Controllers
 
         // POST: api/v1/Users
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<UserDto>> PostUser(UserCreateDto userDto)
@@ -44,7 +49,10 @@ namespace UserServiceAPI.API.Controllers
 
         // PATCH: api/v1/Users/2c4f92ec-a750-4e84-beae-7cf30fe42d6b/active
         [HttpPatch("{id}")]
+        [Authorize(Roles = "Manager")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<User>> ToggleUserActiveStatus(Guid id)
@@ -56,7 +64,10 @@ namespace UserServiceAPI.API.Controllers
 
         // DELETE: api/v1/Users/2c4f92ec-a750-4e84-beae-7cf30fe42d6b
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(Error), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> DeleteUser(Guid id)

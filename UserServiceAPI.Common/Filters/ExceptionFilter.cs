@@ -25,6 +25,10 @@ namespace UserServiceAPI.Common.Filters
             {
                 error.StatusCode = (int)HttpStatusCode.BadRequest;
             }
+            else if (context.Exception is UnauthorizedAccessException)
+            {
+                error.StatusCode = (int)HttpStatusCode.Forbidden;
+            }
 
             context.Result = new JsonResult(error) { StatusCode = error.StatusCode };
         }

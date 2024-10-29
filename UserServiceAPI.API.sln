@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserServiceAPI.Infrastructu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserServiceAPI.Common", "UserServiceAPI.Common\UserServiceAPI.Common.csproj", "{9B4A767A-A68D-4EA1-B799-67005B4B6714}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserServiceAPI.Testing", "UserServiceAPI.Testing\UserServiceAPI.Testing.csproj", "{091CCB78-D9C3-4AB9-88BF-0493D8A74F72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserServiceAPI.Testing", "UserServiceAPI.Testing\UserServiceAPI.Testing.csproj", "{091CCB78-D9C3-4AB9-88BF-0493D8A74F72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{9DFAD7BB-2CB4-464A-A342-62B8C06EF55E}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
