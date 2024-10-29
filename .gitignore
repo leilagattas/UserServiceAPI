@@ -1,0 +1,40 @@
+# Build artifacts
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.pdb
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio specific folders
+.vs/
+.vscode/
+
+# ASP.NET Core environment files
+appsettings.Development.json
+appsettings.Local.json
+
+# Sensitive data
+.env
+
+# Logs
+*.log
+
+# NuGet Packages
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+# Generated files
+Generated/
+wwwroot/
+
+# Ignore the .env file containing sensitive data
+/userServiceAPI.API/.env
