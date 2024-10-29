@@ -47,7 +47,7 @@ namespace UserServiceAPI.API.Controllers
             return Ok(users);
         }
 
-        // PATCH: api/v1/Users/2c4f92ec-a750-4e84-beae-7cf30fe42d6b/active
+        // PATCH: api/v1/Users/2c4f92ec-a750-4e84-beae-7cf30fe42d6b
         [HttpPatch("{id}")]
         [Authorize(Roles = "Manager")]
         [ProducesResponseType(StatusCodes.Status200OK)]

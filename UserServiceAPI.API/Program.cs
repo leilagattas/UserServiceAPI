@@ -1,7 +1,6 @@
 using DotNetEnv;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -21,12 +20,18 @@ builder.Services.AddControllers(options =>
 #endregion
 
 #region DefaultConnection
-MySqlServerVersion serverVersion =  new (new Version(8, 0, 23));
+MySqlServerVersion serverVersion = new(new Version(8, 0, 23));
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+var dbSchema = Environment.GetEnvironmentVariable("DB_SCHEMA");
 var dbUser = Environment.GetEnvironmentVariable("DB_USER");
 var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
+
+if (!string.IsNullOrEmpty(dbSchema))
+{
+    connectionString = connectionString.Replace("${DB_SCHEMA}", dbSchema);
+}
 
 if (!string.IsNullOrEmpty(dbUser))
 {
