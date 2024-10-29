@@ -35,7 +35,7 @@ Database Version: This project is configured to work with MySQL Server version 8
 *Additional Setup*
 - Install MySQL: make sure MySQL Server is installed on your machine. You can download it from the official MySQL website.
 - Create Database: after installing MySQL, create a database for your project. This database name will be then added to .env file.
-- Run Migrations: make sure to apply any migrations to set up your database schema.
+- Run Migrations: make sure to apply any migrations to set up your database schema. Go to the UserServiceAPI.API folder, and run the following command:
 `dotnet ef database update --context UserDbContext --startup-project ../UserServiceAPI.API`
 
 ## Enviroment Setup
